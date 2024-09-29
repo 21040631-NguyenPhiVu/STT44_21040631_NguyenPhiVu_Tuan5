@@ -6,9 +6,9 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default function Screen_04() {
     const images = [
-        { url: require('../assets/Data/Container 7_2.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
-        { url: require('../assets/Data/Container 7_1.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
-        { url: require('../assets/Data/Container 7_3.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container_7_2.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container_7_1.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container_7_3.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
         { url: require('../assets/Data/Container_7.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
     ]
     const sizes = [
@@ -24,7 +24,7 @@ export default function Screen_04() {
     };
 
     const navigation = useNavigation();
-    const [imgCurrent, setImgCurrent] = useState(require('../assets/Data/Container 7_3.png'));
+    const [imgCurrent, setImgCurrent] = useState(require('../assets/Data/Container_7_3.png'));
     const [indexSelected, setIndexSelected] = useState(2);
     const [priceCurrent, setPriceCurrent] = useState(4.99);
     const [totalCurrent, setTotalCurrent] = useState(4.99);
