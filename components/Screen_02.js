@@ -1,33 +1,10 @@
-import Toast from 'react-native-toast-message';
-import { Alert, Keyboard, KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
-import { Text, View, Image } from "react-native";
+import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import { Text, View, Image, StatusBar } from "react-native";
 import imageLogo from '../assets/Data/Image 19.png';
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
 import { useAccount } from "../Context/AccountContext";
 import { useNavigation } from "@react-navigation/native";
-
-const toastConfig = {
-    error: ({ text1, text2, props }) => (
-        <View style={{
-            height: 60,
-            width: '90%',
-            backgroundColor: 'white',
-            borderColor: 'orange',
-            borderWidth: 2,
-            borderLeftWidth: 5,
-            borderLeftColor: 'orange',
-            borderRadius: 10,
-            justifyContent: 'center',
-            paddingHorizontal: 15,
-            alignSelf: 'center',
-            zIndex: 999,
-        }}>
-            <Text style={{ color: 'orange', fontSize: 18, fontWeight: 'bold' }}>{text1}</Text>
-            <Text style={{ color: 'gray', fontSize: 16 }}>{text2}</Text>
-        </View>
-    ),
-};
 
 export default function Screen_02() {
     const [isChecked, setChecked] = useState(false);
@@ -39,144 +16,89 @@ export default function Screen_02() {
     const navigation = useNavigation();
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior={Platform.OS === "ios" ? "padding" : "height"}
-                    keyboardVerticalOffset={150}
-                >
-                    <View style={styles.container}>
-                        <View style={{ alignItems: 'center' }}>
-                            <Image
-                                source={imageLogo}
-                            />
-                            <Text style={{ fontSize: 30, fontWeight: 'bold', marginTop: 20, marginBottom: 10 }}>Nice to see you!</Text>
-                            <Text style={{ fontSize: 15, color: 'gray' }}>Create your account</Text>
-                        </View>
-                        <View style={{ gap: 20, width: '100%', paddingHorizontal: 24 }}>
-                            <View style={styles.inputContainer}>
-                                <Image
-                                    style={styles.inputIcon}
-                                    source={require('../assets/Data/codicon_account.png')}
-                                />
-                                <TextInput
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+            <StatusBar hidden='true'/>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Screen_01')}
+                style={{paddingLeft: 20}}
+            >
+                <Image source={require('../assets/Data/Image 183.png')}/>
+            </TouchableOpacity>
+            <View style={styles.container}>
+                <View style={{ alignItems: 'center' }}>
+                    <Image source={imageLogo} />
+                    <Text style={{ fontSize: 30, fontWeight: 'bold', marginTop: 20, marginBottom: 10 }}>Nice to see you!</Text>
+                    <Text style={{ fontSize: 15, color: 'gray' }}>Create your account</Text>
+                </View>
+
+                <View style={{ gap: 20, width: '100%', paddingHorizontal: 24 }}>
+                    <View style={styles.inputContainer}>
+                        <Image style={styles.inputIcon} source={require('../assets/Data/codicon_account.png')} />
+                        <TextInput
                                     value={userName}
                                     style={styles.input}
                                     placeholder="Enter your user name"
                                     placeholderTextColor={'gray'}
                                     onChangeText={(text) => setUserName(text)}
-                                />
-                            </View>
-                            <View style={styles.inputContainer}>
-                                <Image
-                                    style={styles.inputIcon}
-                                    source={require('../assets/Data/Vector.png')}
-                                />
-                                <TextInput
-                                    value={email}
-                                    style={styles.input}
-                                    placeholder="Enter your email address"
-                                    placeholderTextColor={'gray'}
-                                    onChangeText={(text) => setEmail(text)}
-                                />
-                            </View>
-                            <View style={styles.inputContainer}>
-                                <Image
-                                    style={styles.inputIcon}
-                                    source={require('../assets/Data/lock.png')}
-                                />
-                                <TextInput
-                                    secureTextEntry={hidePassword}
-                                    value={password}
-                                    style={styles.input}
-                                    placeholder="Enter your password"
-                                    placeholderTextColor={'gray'}
-                                    onChangeText={(text) => setPassword(text)}
-                                />
-                                <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
-                                    <Image
-                                        style={styles.inputIcon}
-                                        source={
-                                            hidePassword ? require('../assets/Data/eyeLock.png') :
-                                                require('../assets/Data/eye.png')
-                                        }
-                                    />
-                                </TouchableOpacity>
-
-                            </View>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Checkbox
-                                    style={{ marginRight: 5 }}
-                                    value={isChecked}
-                                    onValueChange={setChecked}
-                                    color={isChecked ? '#197DCA' : undefined}
-                                />
-                                <Text>I agree with <Text style={{ color: '#197DCA' }}>Terms & Conditions</Text></Text>
-                            </View>
-
-                            <TouchableOpacity
-                                style={{
-                                    backgroundColor: '#25C3D9',
-                                    alignItems: 'center',
-                                    borderRadius: 10,
-                                    marginVertical: 10
-                                }}
-                                onPress={() => {
-                                    if (userName.length === 0) {
-                                        Toast.show({
-                                            type: 'error',
-                                            text1: 'Warning',
-                                            text2: 'Username is required',
-                                            position: 'top',
-                                            visibilityTime: 2000,
-                                        });
-                                        return;
-                                    }
-                                    if (email.length === 0) {
-                                        Toast.show({
-                                            type: 'error',
-                                            text1: 'Warning',
-                                            text2: 'Email is required',
-                                            position: 'top',
-                                            visibilityTime: 2000,
-                                        });
-                                        return;
-                                    }
-                                    if (password.length < 6) {
-                                        Toast.show({
-                                            type: 'error',
-                                            text1: 'Warning',
-                                            text2: 'Password must be at least 6 characters',
-                                            position: 'top',
-                                            visibilityTime: 2000,
-                                        });
-                                        return;
-                                    }
-                                    if (!isChecked) {
-                                        Toast.show({
-                                            type: 'error',
-                                            text1: 'Warning',
-                                            text2: 'You must agree with Terms & Conditions!',
-                                            position: 'top',
-                                            visibilityTime: 2000,
-                                        });
-                                        return;
-                                    }
-                                    addAccount({ userName, email, password });
-                                    setEmail('');
-                                    setUserName('');
-                                    setPassword('');
-                                    navigation.navigate('Screen_03');
-                                }}
-                            >
-                                <Text style={{ color: 'white', fontSize: 15, padding: 15 }}>Continue</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <Toast config={toastConfig} />
+                        />
                     </View>
-                </KeyboardAvoidingView>
-            </TouchableWithoutFeedback>
+
+                    <View style={styles.inputContainer}>
+                        <Image style={styles.inputIcon} source={require('../assets/Data/Vector.png')} />
+                        <TextInput
+                            value={email}
+                            style={styles.input}
+                            placeholder="Enter your email address"
+                            placeholderTextColor={'gray'}
+                            onChangeText={(text) => setEmail(text)}
+                        />
+                    </View>
+                            
+                    <View style={styles.inputContainer}>
+                        <Image style={styles.inputIcon} source={require('../assets/Data/lock.png')} />
+                        <TextInput
+                            secureTextEntry={hidePassword}
+                            value={password}
+                            style={styles.input}
+                            placeholder="Enter your password"
+                            placeholderTextColor={'gray'}
+                            onChangeText={(text) => setPassword(text)}
+                        />
+                        <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
+                            <Image style={styles.inputIcon} source={hidePassword ? require('../assets/Data/eyeLock.png') : require('../assets/Data/eye.png')}/>
+                        </TouchableOpacity>
+
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Checkbox
+                            style={{ marginRight: 5 }}
+                            value={isChecked}
+                            onValueChange={setChecked}
+                            color={isChecked ? '#197DCA' : undefined}
+                        />
+                            <Text>I agree with <Text style={{ color: '#197DCA' }}>Terms & Conditions</Text></Text>
+                    </View>
+
+                    <TouchableOpacity
+                        style={{
+                            backgroundColor: '#25C3D9',
+                            alignItems: 'center',
+                            borderRadius: 10,
+                            marginVertical: 10
+                        }}
+                        onPress={() => {                                   
+                            addAccount({ userName, email, password });
+                            setEmail('');
+                            setUserName('');
+                            setPassword('');
+                                navigation.navigate('Screen_03');
+                        }}
+                    >
+                        <Text style={{ color: 'white', fontSize: 15, padding: 15 }}>Continue</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </SafeAreaView>
     );
 }

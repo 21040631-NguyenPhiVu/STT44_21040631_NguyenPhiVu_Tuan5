@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import { Text, View, Image, SafeAreaView } from "react-native";
+import { Text, View, Image, SafeAreaView, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import AwesomeAlert from 'react-native-awesome-alerts';
@@ -33,7 +33,14 @@ export default function Screen_04() {
     const [sizeCurrent, setSizeCurrent] = useState('M');
     const [isShowAlert, setShowAlert] = useState(false);
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+            <StatusBar hidden='true'/>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Screen_03')}
+                style={{paddingLeft: 20}}
+            >
+                <Image source={require('../assets/Data/Image 183.png')}/>
+            </TouchableOpacity>
             <ScrollView>
                 <View style={{ backgroundColor: 'white', flex: 1 }}>
                     <View style={{ flex: 1, paddingHorizontal: 16, paddingTop: 16 }}>

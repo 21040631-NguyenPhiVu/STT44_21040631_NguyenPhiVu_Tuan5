@@ -36,7 +36,6 @@ export default function Screen_01() {
                 </View>
             </View>
         </SafeAreaView>
-
     )
 }
 
