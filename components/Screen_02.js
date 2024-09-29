@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 import { Text, View, Image, StatusBar } from "react-native";
-import imageLogo from '../assets/Data/Image 19.png';
+import imageLogo from '../assets/Data/Image_19.png';
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
 import { useAccount } from "../Context/AccountContext";
@@ -22,7 +22,7 @@ export default function Screen_02() {
                 onPress={() => navigation.navigate('Screen_01')}
                 style={{paddingLeft: 20}}
             >
-                <Image source={require('../assets/Data/Image 183.png')}/>
+                <Image source={require('../assets/Data/Image_183.png')}/>
             </TouchableOpacity>
             <View style={styles.container}>
                 <View style={{ alignItems: 'center' }}>

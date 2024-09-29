@@ -17,12 +17,12 @@ export default function Screen_03() {
                 onPress={() => navigation.navigate('Screen_02')}
                 style={{paddingLeft: 20}}
             >
-                <Image source={require('../assets/Data/Image 183.png')}/>
+                <Image source={require('../assets/Data/Image_183.png')}/>
             </TouchableOpacity>
             <View>
                 <Image 
                     style={{ width: '100%' }} 
-                    source={require('../assets/Data/Image 20.png')} 
+                    source={require('../assets/Data/Image_20.png')} 
                 />
                 
                 <View style={styles.container}>

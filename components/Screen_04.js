@@ -6,10 +6,10 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default function Screen_04() {
     const images = [
-        { url: require('../assets/Data/Container 7 (2).png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
-        { url: require('../assets/Data/Container 7 (1).png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
-        { url: require('../assets/Data/Container 7 (3).png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
-        { url: require('../assets/Data/Container 7.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container 7_2.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container 7_1.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container 7_3.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
+        { url: require('../assets/Data/Container_7.png'), priceXS: 1.99, priceS: 2.99, priceM: 3.99, priceL: 4.99, priceXL: 5.99 },
     ]
     const sizes = [
         'XS', 'S', 'M', 'L', 'XL'
@@ -24,7 +24,7 @@ export default function Screen_04() {
     };
 
     const navigation = useNavigation();
-    const [imgCurrent, setImgCurrent] = useState(require('../assets/Data/Container 7 (3).png'));
+    const [imgCurrent, setImgCurrent] = useState(require('../assets/Data/Container 7_3.png'));
     const [indexSelected, setIndexSelected] = useState(2);
     const [priceCurrent, setPriceCurrent] = useState(4.99);
     const [totalCurrent, setTotalCurrent] = useState(4.99);
@@ -39,7 +39,7 @@ export default function Screen_04() {
                 onPress={() => navigation.navigate('Screen_03')}
                 style={{paddingLeft: 20}}
             >
-                <Image source={require('../assets/Data/Image 183.png')}/>
+                <Image source={require('../assets/Data/Image_183.png')}/>
             </TouchableOpacity>
             <ScrollView>
                 <View style={{ backgroundColor: 'white', flex: 1 }}>
@@ -110,7 +110,7 @@ export default function Screen_04() {
                             </View>
                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
                                 <Image
-                                    source={require('../assets/Data/Rating 3.png')}
+                                    source={require('../assets/Data/Rating_3.png')}
                                 />
                                 <Text>4.5</Text>
                             </View>
@@ -242,6 +242,7 @@ export default function Screen_04() {
                                     setQuantityCurrent(1)
                                     setTotalCurrent(priceCurrent)
                                 }}
+                                
                             />
                         </TouchableOpacity>
                     </View>

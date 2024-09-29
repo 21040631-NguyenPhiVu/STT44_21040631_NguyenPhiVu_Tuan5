@@ -1,6 +1,5 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { Text, View, Image, SafeAreaView } from "react-native";
-import image from '../assets/Data/Container 17.png'
 import { useNavigation } from "@react-navigation/native";
 
 export default function Screen_01() {
@@ -11,7 +10,7 @@ export default function Screen_01() {
                 <View style={{ gap: 6 }}>
                     <Image
                         style={{ height: 380, borderRadius: 24, marginTop: 10 }}
-                        source={image}
+                        source={require('../assets/Data/Container_17.png')}
                     />
                     <Text style={{ fontSize: 23, fontWeight: 'bold' }}>Boost Productivity</Text>
                     <Text style={{ fontSize: 15, color: 'gray' }}>Simplify tasks, boost productivity</Text>
@@ -27,11 +26,10 @@ export default function Screen_01() {
                     >
                         <Text style={{ fontSize: 18, color: 'gray' }}>Login</Text>
                     </TouchableOpacity>
-                    <View style={{ alignItems: 'center', marginTop: 10 }}>
-                        <Image
-                            style={{ width: 46, height: 12 }}
-                            source={require('../assets/Data/....png')}
-                        />
+                    <View style={{ alignItems: 'center', marginTop: 10, flexDirection: 'row', alignSelf: 'center' }}>
+                        <View style={{borderWidth: 1, borderColor: '#25C3D9', width: 17, height: 17, borderRadius: '50%', marginRight: 10}}></View>
+                        <View style={{backgroundColor: '#25C3D9', width: 17, height: 17, borderRadius: '50%', marginRight: 10}}></View>
+                        <View style={{borderWidth: 1, borderColor: '#25C3D9', width: 17, height: 17, borderRadius: '50%'}}></View>
                     </View>
                 </View>
             </View>
